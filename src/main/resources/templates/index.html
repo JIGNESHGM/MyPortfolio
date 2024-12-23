@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jignesh Mevada</title>
+
+<!--
+    - favicon
+  -->
+<link rel="shortcut icon" href="./assets/images/logo.ico"
+	type="image/x-icon">
+
+<!--
+    - custom css link
+  -->
+<link rel="stylesheet" href="./assets/css/style.css">
+
+<!--
+    - google font link
+  -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+	rel="stylesheet">
+<style>
+/* Dark theme background */
+body {
+	background-color: #121212;
+	color: #f1f1f1;
+}
+
+/* Container and card styling */
+.certificate-list {
+	margin-top: 40px;
+}
+
+.certificate-card {
+	border: 1px solid #333;
+	border-radius: 8px;
+	padding: 20px;
+	background-color: #1e1e1e;
+	margin-bottom: 15px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificate-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.certificate-title {
+	font-size: 20px;
+	font-weight: bold;
+	color: #f1f1f1;
+}
+
+.certificate-title a {
+	text-decoration: none;
+	color: inherit;
+	transition: color 0.3s ease;
+}
+
+.certificate-title a:hover {
+	color: #007bff;
+}
+
+.certificate-description {
+	font-size: 14px;
+	color: #bbb;
+	line-height: 1.5;
+}
+
+/* Bootstrap grid adjustments */
+.col-md-6, .col-lg-4 {
+	margin-bottom: 20px;
+}
+
+/* Ensure links are accessible */
+a {
+	text-decoration: none;
+}
+
+/* Ensure better readability on dark background */
+.certificate-content {
+	padding: 10px;
+}
+
+.training-card {
+	border: 1px solid #333;
+	border-radius: 8px;
+	padding: 20px;
+	background-color: #1e1e1e;
+	margin-bottom: 15px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.training-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.training-title {
+	font-size: 18px;
+	font-weight: bold;
+	color: #f1f1f1;
+}
+
+.training-title a {
+	text-decoration: none;
+	color: inherit
+}
+</style>
+</head>
+
+
+<body>
+
+	<!--
+    - #MAIN
+  -->
+
+	<main>
+
+		<!--
+      - #SIDEBAR
+    -->
+
+		<aside class="sidebar" data-sidebar>
+
+			<div class="sidebar-info">
+
+				<figure class="avatar-box">
+					<img src="./assets/images/my-avatar.png" alt="Richard hanrick"
+						width="80">
+				</figure>
+
+				<div class="info-content">
+					<h1 class="name" title="Richard hanrick">Jignesh Mevada</h1>
+
+					<p class="title">Web developer, CyberSecurity</p>
+				</div>
+
+				<button class="info_more-btn" data-sidebar-btn>
+					<span>Show Contacts</span>
+
+					<ion-icon name="chevron-down"></ion-icon>
+				</button>
+
+			</div>
+
+			<div class="sidebar-info_more">
+
+				<div class="separator"></div>
+
+				<ul class="contacts-list">
+
+					<li class="contact-item">
+
+						<div class="icon-box">
+							<ion-icon name="mail-outline"></ion-icon>
+						</div>
+
+						<div class="contact-info">
+							<p class="contact-title">Email</p>
+
+							<a href="mailto:jigneshmevada87@gmail.com" class="contact-link">jigneshmevada87@gmail.com</a>
+						</div>
+
+					</li>
+
+					<li class="contact-item">
+
+						<div class="icon-box">
+							<ion-icon name="phone-portrait-outline"></ion-icon>
+						</div>
+
+						<div class="contact-info">
+							<p class="contact-title">Phone</p>
+
+							<a href="tel:+91 9638137734" class="contact-link">+91
+								9638137734</a>
+						</div>
+
+					</li>
+
+					<!-- 
+ 			<li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+
+              <time datetime="1982-06-23">June 23, 1982</time>
+            </div>
+
+          </li>
+ 			
+ 			 -->
+
+					<li class="contact-item">
+
+						<div class="icon-box">
+							<ion-icon name="location-outline"></ion-icon>
+						</div>
+
+						<div class="contact-info">
+							<p class="contact-title">Location</p>
+
+							<address>Ahmedabad, Gujarat, India</address>
+						</div>
+
+					</li>
+
+				</ul>
+
+				<div class="separator"></div>
+
+				<ul class="social-list">
+
+					<li class="social-item"><a href="#" class="social-link"> <ion-icon
+								name="logo-facebook"></ion-icon>
+					</a></li>
+
+					<li class="social-item"><a href="#" class="social-link"> <ion-icon
+								name="logo-twitter"></ion-icon>
+					</a></li>
+
+					<li class="social-item"><a href="#" class="social-link"> <ion-icon
+								name="logo-instagram"></ion-icon>
+					</a></li>
+
+				</ul>
+
+			</div>
+
+		</aside>
+
+
+
+
+
+		<!--
+      - #main-content
+    -->
+
+		<div class="main-content">
+
+			<!--
+        - #NAVBAR
+      -->
+
+			<nav class="navbar">
+
+				<ul class="navbar-list">
+
+					<li class="navbar-item">
+						<button class="navbar-link  active" data-nav-link>About</button>
+					</li>
+
+					<li class="navbar-item">
+						<button class="navbar-link" data-nav-link>Resume</button>
+					</li>
+
+					<li class="navbar-item">
+						<button class="navbar-link" data-nav-link>Trainings</button>
+					</li>
+
+					<li class="navbar-item">
+						<button class="navbar-link" data-nav-link>Certificates</button>
+					</li>
+
+					<li class="navbar-item">
+						<button class="navbar-link" data-nav-link>Contact</button>
+					</li>
+
+				</ul>
+
+			</nav>
+
+
+			<!--
+        - #ABOUT
+      -->
+
+			<article class="about  active" data-page="about">
+
+				<header>
+					<h2 class="h2 article-title">About me</h2>
+				</header>
+
+				<section class="about-text">
+					<p>I am a passionate and motivated Full Stack Web Developer
+						from Ahmedabad, India, excited to begin my career in building
+						modern and responsive websites. I have a solid foundation in both
+						front-end and back-end technologies and am dedicated to creating
+						engaging user experiences that are functional and visually
+						appealing.</p>
+
+					<p>As a fresher, I am skilled in designing and developing
+						websites using technologies like HTML, CSS, JavaScript, and
+						frameworks such as React and Node.js. I am enthusiastic about
+						solving challenges, learning new tools, and delivering innovative
+						solutions to transform ideas into impactful digital products.</p>
+
+					<p>Additionally, I am an eager and detail-oriented
+						Cybersecurity Specialist, committed to protecting digital
+						environments. I possess foundational knowledge in securing systems
+						and am excited to apply my skills to identify vulnerabilities and
+						protect against cyber threats.</p>
+
+					<p>As a fresher, I am familiar with network security, ethical
+						hacking, and risk assessment methodologies. I am dedicated to
+						learning from real-world challenges, staying updated with the
+						latest security trends, and contributing to maintaining secure and
+						resilient systems.</p>
+				</section>
+
+
+				<!--
+          - service
+        -->
+
+				<section class="service">
+
+					<h3 class="h3 service-title">What i'm doing</h3>
+
+					<ul class="service-list">
+
+						<li class="service-item">
+
+							<div class="service-icon-box">
+								<img src="./assets/images/icon-dev.svg"
+									alt="full stack development icon" width="40">
+							</div>
+
+							<div class="service-content-box">
+								<h4 class="h4 service-item-title">Full Stack Development</h4>
+
+								<p class="service-item-text">As a fresher, I am skilled in
+									building both front-end and back-end applications using modern
+									tools and technologies, ensuring efficient and user-friendly
+									solutions.</p>
+							</div>
+
+						</li>
+
+						<li class="service-item">
+
+							<div class="service-icon-box">
+								<img src="./assets/images/cybersecurity.png"
+									alt="cybersecurity icon" width="40">
+							</div>
+
+							<div class="service-content-box">
+								<h4 class="h4 service-item-title">Cybersecurity</h4>
+
+								<p class="service-item-text">I am passionate about securing
+									systems and protecting data from potential threats. I apply my
+									learning in identifying vulnerabilities and implementing
+									effective security measures.</p>
+							</div>
+
+						</li>
+
+						<li class="service-item">
+
+							<div class="service-icon-box">
+								<img src="./assets/images/icon-app.svg"
+									alt="flutter development icon" width="40">
+							</div>
+
+							<div class="service-content-box">
+								<h4 class="h4 service-item-title">Flutter Development</h4>
+
+								<p class="service-item-text">With a strong foundation in
+									Flutter, I design and develop responsive mobile apps for
+									Android and iOS platforms, focusing on user experience and
+									performance.</p>
+							</div>
+
+						</li>
+
+						<li class="service-item">
+
+							<div class="service-icon-box">
+								<img src="./assets/images/java.png" alt="java development icon"
+									width="40">
+							</div>
+
+							<div class="service-content-box">
+								<h4 class="h4 service-item-title">Java Development</h4>
+
+								<p class="service-item-text">As a Java enthusiast, I work on
+									creating efficient and scalable software applications,
+									leveraging my skills in core and advanced Java concepts.</p>
+							</div>
+
+						</li>
+
+						<li class="service-item">
+
+							<div class="service-icon-box">
+								<img src="./assets/images/global-network.png"
+									alt="asp.net web development icon" width="40">
+							</div>
+
+							<div class="service-content-box">
+								<h4 class="h4 service-item-title">ASP.NET Web Development</h4>
+
+								<p class="service-item-text">Eager to develop dynamic web
+									applications using ASP.NET, I bring a fresh perspective and a
+									keen eye for creating engaging user interfaces.</p>
+							</div>
+
+						</li>
+
+					</ul>
+
+				</section>
+
+
+				<!--
+          - testimonials
+        -->
+
+				<section class="testimonials"></section>
+
+
+				<!--
+          - testimonials modal
+        -->
+
+				<div class="modal-container" data-modal-container>
+
+					<div class="overlay" data-overlay></div>
+
+					<section class="testimonials-modal">
+
+						<button class="modal-close-btn" data-modal-close-btn>
+							<ion-icon name="close-outline"></ion-icon>
+						</button>
+
+						<div class="modal-img-wrapper">
+							<figure class="modal-avatar-box">
+								<img src="./assets/images/avatar-1.png" alt="Daniel lewis"
+									width="80" data-modal-img>
+							</figure>
+
+							<img src="./assets/images/icon-quote.svg" alt="quote icon">
+						</div>
+
+						<div class="modal-content">
+
+							<h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
+
+							<time datetime="2021-06-14">14 June, 2021</time>
+
+							<div data-modal-text>
+								<p>Richard was hired to create a corporate identity. We were
+									very pleased with the work done. She has a lot of experience
+									and is very concerned about the needs of client. Lorem ipsum
+									dolor sit amet, ullamcous cididt consectetur adipiscing elit,
+									seds do et eiusmod tempor incididunt ut laborels dolore
+									magnarels alia.</p>
+							</div>
+
+						</div>
+
+					</section>
+
+				</div>
+
+
+				<!--
+          - clients
+        -->
+
+				<section class="clients"></section>
+
+			</article>
+
+
+
+
+
+			<!--
+        - #RESUME
+      -->
+
+			<article class="resume" data-page="resume">
+
+				<header>
+					<h2 class="h2 article-title">Resume</h2>
+				</header>
+
+				<section class="timeline">
+
+					<div class="title-wrapper">
+						<div class="icon-box">
+							<ion-icon name="book-outline"></ion-icon>
+						</div>
+
+						<h3 class="h3">Education</h3>
+					</div>
+
+					<ol class="timeline-list">
+
+						<li class="timeline-item">
+
+							<h4 class="h4 timeline-item-title">LJ Institute of Computer
+								Applications, Ahmedabad, MCA</h4> <span>2023 — 2025</span>
+
+							<p class="timeline-text">Pursuing a Master's degree in
+								Computer Applications. Coursework includes advanced topics in
+								software development, data structures, algorithms, and database
+								management systems. Expected to graduate with a focus on modern
+								software technologies and applications. Current GPA: 7.29</p>
+
+						</li>
+
+						<li class="timeline-item">
+
+							<h4 class="h4 timeline-item-title">MJ College of Commerce,
+								Bhavnager, B.Com</h4> <span>2020 — 2023</span>
+
+							<p class="timeline-text">Completed a Bachelor's degree in
+								Commerce with a comprehensive understanding of business,
+								finance, and accounting principles. Graduated with an overall
+								percentage of 53.64.</p>
+
+						</li>
+
+
+
+					</ol>
+
+				</section>
+
+				<section class="timeline">
+
+					<div class="title-wrapper">
+						<div class="icon-box">
+							<ion-icon name="book-outline"></ion-icon>
+						</div>
+
+						<h3 class="h3">Projects</h3>
+					</div>
+
+					<ol class="timeline-list">
+
+						<li class="timeline-item">
+
+							<h4 class="h4 timeline-item-title">Maa Consultancy E-Filing
+								Management System</h4> <span>2024 — Present</span>
+
+							<p class="timeline-text">Developed a comprehensive E-Filing
+								Management System in Java with a MySQL database. The project
+								streamlines documentation processes and enhances operational
+								efficiency for Maa Consultancy.</p>
+
+						</li>
+
+						<li class="timeline-item">
+
+							<h4 class="h4 timeline-item-title">Clothing Sales Web
+								Application</h4> <span>2023 — 2024</span>
+
+							<p class="timeline-text">Created an ASP.NET-based web
+								application for clothing sales, integrating a secure payment
+								gateway for seamless online transactions and user-friendly
+								navigation.</p>
+
+						</li>
+
+						<li class="timeline-item">
+
+							<h4 class="h4 timeline-item-title">MongoDB Database Analysis</h4>
+							<span>2023</span>
+
+							<p class="timeline-text">Conducted data analysis using
+								MongoDB, focusing on data modeling, aggregation, and performance
+								optimization to derive actionable insights.</p>
+
+						</li>
+
+						<li class="timeline-item">
+
+							<h4 class="h4 timeline-item-title">Mobile Sales Web
+								Application</h4> <span>2022 — 2023</span>
+
+							<p class="timeline-text">Designed a PHP-based mobile sales
+								website, incorporating product catalogs, cart management, and
+								payment integration for an enhanced shopping experience.</p>
+
+						</li>
+
+
+
+					</ol>
+
+				</section>
+
+				<section class="skill">
+
+					<h3 class="h3 skills-title">My skills</h3>
+
+					<ul class="skills-list content-card">
+
+
+						<li class="skills-item">
+
+							<div class="title-wrapper">
+								<h5 class="h5">Web API</h5>
+								<data value="80">85%</data>
+							</div>
+
+							<div class="skill-progress-bg">
+								<div class="skill-progress-fill" style="width: 85%;"></div>
+							</div>
+
+						</li>
+
+						<li class="skills-item">
+
+							<div class="title-wrapper">
+								<h5 class="h5">Java</h5>
+								<data value="80">80%</data>
+							</div>
+
+							<div class="skill-progress-bg">
+								<div class="skill-progress-fill" style="width: 80%;"></div>
+							</div>
+
+						</li>
+
+						<li class="skills-item">
+
+							<div class="title-wrapper">
+								<h5 class="h5">ASP.NET</h5>
+								<data value="70">70%</data>
+							</div>
+
+							<div class="skill-progress-bg">
+								<div class="skill-progress-fill" style="width: 70%;"></div>
+							</div>
+
+						</li>
+
+						<li class="skills-item">
+
+							<div class="title-wrapper">
+								<h5 class="h5">Cybersecurity</h5>
+								<data value="90">60%</data>
+							</div>
+
+							<div class="skill-progress-bg">
+								<div class="skill-progress-fill" style="width: 60%;"></div>
+							</div>
+
+						</li>
+
+						<li class="skills-item">
+
+							<div class="title-wrapper">
+								<h5 class="h5">Python</h5>
+								<data value="50">68%</data>
+							</div>
+
+							<div class="skill-progress-bg">
+								<div class="skill-progress-fill" style="width: 68%;"></div>
+							</div>
+
+						</li>
+
+					</ul>
+
+				</section>
+
+			</article>
+
+
+
+
+
+			<!--
+        - #Project
+      -->
+
+			<article class="trainings" data-page="trainings">
+				<header>
+					<h2 class="h2 article-title">Trainings</h2>
+				</header>
+				<section class="trainings-content">
+
+
+					<div class="filter-select-box">
+						<button class="filter-select" data-select></button>
+
+					</div>
+
+					<div class="container">
+						<div class="row">
+							<!-- Training 1 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card training-card">
+									<div class="training-content">
+										<h5 class="training-title">
+											<a href="#">Spoken Tutorial Training</a>
+										</h5>
+										<p class="training-description">Comprehensive training
+											sessions offered by Spoken Tutorial to learn programming and
+											technical skills efficiently.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Training 2 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card training-card">
+									<div class="training-content">
+										<h5 class="training-title">
+											<a href="#">Java Programming</a>
+										</h5>
+										<p class="training-description">Master the fundamentals of
+											Java programming for building scalable applications.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Training 3 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card training-card">
+									<div class="training-content">
+										<h5 class="training-title">
+											<a href="#">Python 3.4.3</a>
+										</h5>
+										<p class="training-description">Hands-on training in
+											Python programming for data analysis, automation, and web
+											development.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Training 4 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card training-card">
+									<div class="training-content">
+										<h5 class="training-title">
+											<a href="#">C and C++ Programming</a>
+										</h5>
+										<p class="training-description">Learn foundational
+											programming skills using C and advanced concepts with C++.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Training 5 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card training-card">
+									<div class="training-content">
+										<h5 class="training-title">
+											<a href="#">RDBMS PostgreSQL</a>
+										</h5>
+										<p class="training-description">Training on relational
+											database management and PostgreSQL for robust data handling.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Training 6 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card training-card">
+									<div class="training-content">
+										<h5 class="training-title">
+											<a href="#">JavaScript (Web Development)</a>
+										</h5>
+										<p class="training-description">Understand JavaScript
+											fundamentals to develop interactive and dynamic web
+											applications.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Training 7 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card training-card">
+									<div class="training-content">
+										<h5 class="training-title">
+											<a href="#">Ruby Programming</a>
+										</h5>
+										<p class="training-description">Explore Ruby programming
+											for building dynamic and feature-rich applications.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Training 8 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card training-card">
+									<div class="training-content">
+										<h5 class="training-title">
+											<a href="#">Joomla</a>
+										</h5>
+										<p class="training-description">Learn Joomla content
+											management system for creating and managing professional
+											websites.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</section>
+			</article>
+
+
+
+
+			<!--
+        - #BLOG
+      -->
+
+			<!--
+    - #CERTIFICATES
+-->
+
+			<!--
+    - #CERTIFICATES
+-->
+
+			<article class="certificates" data-page="certificates">
+
+				<header>
+					<h2 class="h2 article-title">Certificates</h2>
+				</header>
+
+				<section class="certificates-list">
+
+					<div class="container certificate-list">
+						<div class="row">
+							<!-- Certificate 1 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card certificate-card">
+									<div class="certificate-content">
+										<h5 class="certificate-title">
+											<a href="#">Generative AI: Foundation Models and
+												Platforms</a>
+										</h5>
+										<p class="certificate-description">Learn about the
+											foundational models and platforms that are driving
+											advancements in Generative AI.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Certificate 2 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card certificate-card">
+									<div class="certificate-content">
+										<h5 class="certificate-title">
+											<a href="#">Generative AI: Introduction and Applications</a>
+										</h5>
+										<p class="certificate-description">Understand the core
+											principles of Generative AI and its diverse applications
+											across industries.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Certificate 3 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card certificate-card">
+									<div class="certificate-content">
+										<h5 class="certificate-title">
+											<a href="#">What is Data Science?</a>
+										</h5>
+										<p class="certificate-description">A comprehensive guide
+											to the field of Data Science, its importance, and key
+											techniques.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Certificate 4 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card certificate-card">
+									<div class="certificate-content">
+										<h5 class="certificate-title">
+											<a href="#">Introduction to Agile Development and Scrum</a>
+										</h5>
+										<p class="certificate-description">Learn about Agile
+											development practices and Scrum methodologies to improve
+											project management.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Certificate 5 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card certificate-card">
+									<div class="certificate-content">
+										<h5 class="certificate-title">
+											<a href="#">Generative AI: Business Transformation and
+												Career Growth</a>
+										</h5>
+										<p class="certificate-description">Explore how Generative
+											AI is transforming businesses and opening up new career
+											opportunities.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Certificate 6 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card certificate-card">
+									<div class="certificate-content">
+										<h5 class="certificate-title">
+											<a href="#">Generative AI: Impact, Considerations, and
+												Ethical Issues</a>
+										</h5>
+										<p class="certificate-description">Understand the ethical
+											implications and considerations when working with Generative
+											AI technologies.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Certificate 7 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card certificate-card">
+									<div class="certificate-content">
+										<h5 class="certificate-title">
+											<a href="#">Kali Linux</a>
+										</h5>
+										<p class="certificate-description">An introduction to Kali
+											Linux, focusing on its applications in security and
+											penetration testing.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Certificate 8 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card certificate-card">
+									<div class="certificate-content">
+										<h5 class="certificate-title">
+											<a href="#">Introduction to Software Testing</a>
+										</h5>
+										<p class="certificate-description">Get an overview of
+											software testing principles, methodologies, and tools.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Certificate 9 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card certificate-card">
+									<div class="certificate-content">
+										<h5 class="certificate-title">
+											<a href="#">Introduction to Software Engineering</a>
+										</h5>
+										<p class="certificate-description">Learn the key concepts
+											of software engineering, including development methodologies
+											and best practices.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Certificate 10 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card certificate-card">
+									<div class="certificate-content">
+										<h5 class="certificate-title">
+											<a href="#">Introduction to R Programming for Data
+												Science</a>
+										</h5>
+										<p class="certificate-description">Master the basics of R
+											programming and its applications in data science and
+											analytics.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Certificate 11 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card certificate-card">
+									<div class="certificate-content">
+										<h5 class="certificate-title">
+											<a href="#">Hands-on Introduction to Linux Commands and
+												Shell Scripting</a>
+										</h5>
+										<p class="certificate-description">Learn essential Linux
+											commands and scripting techniques to improve your Linux
+											skills.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Certificate 12 -->
+							<div class="col-md-6 col-lg-4">
+								<div class="card certificate-card">
+									<div class="certificate-content">
+										<h5 class="certificate-title">
+											<a href="#">The Bits and Bytes of Computer Networking</a>
+										</h5>
+										<p class="certificate-description">Understand the basics
+											of computer networking, from hardware to protocols and
+											security.</p>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+				</section>
+
+			</article>
+
+
+
+			<!--
+        - #CONTACT
+      -->
+
+			<article class="contact" data-page="contact">
+
+				<header>
+					<h2 class="h2 article-title">Contact</h2>
+				</header>
+
+
+
+				<section class="contact-form">
+
+					<h3 class="h3 form-title">Contact Form</h3>
+
+					<form action="/api/forms" method="POST" class="form" data-form>
+						<div class="input-wrapper">
+							<!-- Full Name Input -->
+							<input type="text" name="fullname" class="form-input"
+								placeholder="Full name" required aria-label="Full Name">
+
+							<!-- Email Input -->
+							<input type="email" name="email" class="form-input"
+								placeholder="Email address" required aria-label="Email Address">
+						</div>
+
+						<!-- Message Input -->
+						<textarea name="message" class="form-input"
+							placeholder="Your Message" required aria-label="Your Message"></textarea>
+
+						<!-- Submit Button -->
+						<button class="form-btn" type="submit">
+							<ion-icon name="paper-plane"></ion-icon>
+							<span>Send Message</span>
+						</button>
+					</form>
+
+
+				</section>
+
+			</article>
+
+		</div>
+
+	</main>
+
+
+
+
+
+
+	<!--
+    - custom js link
+  -->
+	<script src="./assets/js/script.js"></script>
+
+	<!--
+    - ionicon link
+  -->
+	<script type="module"
+		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule
+		src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
