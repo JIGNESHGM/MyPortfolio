@@ -27,3 +27,16 @@ jobs:
 
     - name: Run tests
       run: mvn test
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Deploy to Heroku
+      env:
+        HEROKU_API_KEY: ${{ secrets.HRKU-740839ba-8c47-4626-b2be-f925220a59bd }}
+      run: |
+        curl https://cli-assets.heroku.com/install.sh | sh
+        heroku login --api-key $HEROKU_API_KEY
+        heroku create
+        git push heroku main
