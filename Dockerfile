@@ -3,60 +3,65 @@ FROM ubuntu:latest AS build
 
 # Update and install dependencies
 RUN apt-get update && apt-get install -y \
-    wget tar openjdk-17-jdk curl unzip && \
+    wget tar curl unzip && \
     rm -rf /var/lib/apt/lists/*
 
-# Optional: Validate the OpenJDK 23 tar.gz file availability
-RUN curl -fSL https://jdk.java.net/early-access/23/ga/binaries/openjdk-23_linux-x64_bin.tar.gz -o openjdk-23.tar.gz || \
-    echo "OpenJDK 23 is unavailable; falling back to OpenJDK 17."
+# Install OpenJDK 23
+RUN wget -q https://download.java.net/java/early_access/jdk23/36/GPL/openjdk-23-ea+36_linux-x64_bin.tar.gz -O openjdk-23.tar.gz && \
+    mkdir -p /usr/lib/jvm && \
+    tar -xzf openjdk-23.tar.gz -C /usr/lib/jvm && \
+    rm openjdk-23.tar.gz && \
+    ln -s /usr/lib/jvm/jdk-23-ea+36 /usr/lib/jvm/default-jdk
 
-# Install OpenJDK 23 if available, else use OpenJDK 17
-RUN if [ -f openjdk-23.tar.gz ]; then \
-        mkdir -p /usr/lib/jvm && \
-        tar -xvf openjdk-23.tar.gz -C /usr/lib/jvm && \
-        rm openjdk-23.tar.gz && \
-        ln -s /usr/lib/jvm/jdk-23 /usr/lib/jvm/default-jdk; \
-    else \
-        ln -s /usr/lib/jvm/java-17-openjdk-amd64 /usr/lib/jvm/default-jdk; \
-    fi
-
-# Set environment variables
+# Set environment variables for JDK 23
 ENV JAVA_HOME=/usr/lib/jvm/default-jdk
 ENV PATH=$JAVA_HOME/bin:$PATH
 
 # Verify the Java version
 RUN java --version
 
-# Copy project files and build
+# Set the working directory
 WORKDIR /app
+
+# Copy the project files
 COPY . /app
 
-# Ensure gradlew is executable
+# Ensure the Gradle wrapper script is executable
 RUN chmod +x gradlew
 
-# Build the application
+# Defensive measure: Ensure gradle-wrapper.jar is available
+RUN if [ ! -f gradle/wrapper/gradle-wrapper.jar ]; then \
+        echo "Gradle Wrapper JAR is missing. Downloading..."; \
+        mkdir -p gradle/wrapper && \
+        curl -o gradle/wrapper/gradle-wrapper.jar \
+        https://services.gradle.org/distributions/gradle-7.6-bin.zip; \
+    fi
+
+# Build the Spring Boot application
 RUN ./gradlew bootjar --no-daemon
 
 # Stage 2: Runtime Stage
 FROM ubuntu:latest
 
-# Install required runtime dependencies
-RUN apt-get update && apt-get install -y openjdk-17-jre && \
+# Install runtime dependencies
+RUN apt-get update && apt-get install -y wget tar curl && \
     rm -rf /var/lib/apt/lists/*
 
-# Copy JDK and application from the build stage
+# Copy the JDK from the build stage
 COPY --from=build /usr/lib/jvm /usr/lib/jvm
-COPY --from=build /app/build/libs/*.jar /app/app.jar
 
-# Set environment variables
+# Set environment variables for JDK 23
 ENV JAVA_HOME=/usr/lib/jvm/default-jdk
 ENV PATH=$JAVA_HOME/bin:$PATH
+
+# Copy the built JAR from the build stage
+COPY --from=build /app/build/libs/*.jar /app/app.jar
 
 # Verify the Java version
 RUN java --version
 
 # Expose the application port
-EXPOSE 8080
+EXPOSE 8081
 
-# Start the application
+# Run the Spring Boot application
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
