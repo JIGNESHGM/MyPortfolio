@@ -1,40 +1,31 @@
 # Stage 1: Build Stage
-FROM ubuntu:latest AS build
+FROM ubuntu:20.04 AS build
 
-# Update and install dependencies
+# Set environment variables to avoid prompts during installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Update and install necessary tools and OpenJDK 17
 RUN apt-get update && apt-get install -y \
-    wget tar curl unzip && \
+    wget curl tar openjdk-17-jdk unzip && \
     rm -rf /var/lib/apt/lists/*
 
-# Install OpenJDK 23 with fallback to OpenJDK 17 if download fails
-RUN wget -q https://download.java.net/java/early_access/jdk23/36/GPL/openjdk-23-ea+36_linux-x64_bin.tar.gz -O openjdk-23.tar.gz || echo "OpenJDK 23 is unavailable. Using OpenJDK 17." && \
-    if [ -f openjdk-23.tar.gz ]; then \
-        mkdir -p /usr/lib/jvm && \
-        tar -xzf openjdk-23.tar.gz -C /usr/lib/jvm && \
-        rm openjdk-23.tar.gz && \
-        ln -s /usr/lib/jvm/jdk-23-ea+36 /usr/lib/jvm/default-jdk; \
-    else \
-        apt-get update && apt-get install -y openjdk-17-jdk && \
-        ln -s /usr/lib/jvm/java-17-openjdk-amd64 /usr/lib/jvm/default-jdk; \
-    fi
-
-# Set environment variables for the JDK
-ENV JAVA_HOME=/usr/lib/jvm/default-jdk
+# Set the environment variables for OpenJDK
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 ENV PATH=$JAVA_HOME/bin:$PATH
 
 # Verify Java version
 RUN java --version
 
-# Set the working directory
+# Set working directory
 WORKDIR /app
 
 # Copy the project files
 COPY . /app
 
-# Ensure the Gradle wrapper script is executable
+# Ensure the Gradle wrapper is executable
 RUN chmod +x gradlew
 
-# Defensive measure: Ensure gradle-wrapper.jar is available
+# Defensive measure: Ensure the Gradle Wrapper JAR is available
 RUN if [ ! -f gradle/wrapper/gradle-wrapper.jar ]; then \
         echo "Gradle Wrapper JAR is missing. Downloading..."; \
         mkdir -p gradle/wrapper && \
@@ -46,23 +37,24 @@ RUN if [ ! -f gradle/wrapper/gradle-wrapper.jar ]; then \
 RUN ./gradlew bootjar --no-daemon
 
 # Stage 2: Runtime Stage
-FROM ubuntu:latest
+FROM ubuntu:20.04
 
-# Install runtime dependencies
-RUN apt-get update && apt-get install -y wget tar curl && \
+# Set environment variables to avoid prompts during installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install runtime dependencies and OpenJDK 17
+RUN apt-get update && apt-get install -y \
+    openjdk-17-jre && \
     rm -rf /var/lib/apt/lists/*
 
-# Copy the JDK from the build stage
-COPY --from=build /usr/lib/jvm /usr/lib/jvm
-
-# Set environment variables for the JDK
-ENV JAVA_HOME=/usr/lib/jvm/default-jdk
+# Set the environment variables for OpenJDK
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 ENV PATH=$JAVA_HOME/bin:$PATH
 
 # Copy the built JAR from the build stage
 COPY --from=build /app/build/libs/*.jar /app/app.jar
 
-# Verify the Java version
+# Verify Java version
 RUN java --version
 
 # Expose the application port
