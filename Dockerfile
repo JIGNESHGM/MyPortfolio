@@ -6,18 +6,23 @@ RUN apt-get update && apt-get install -y \
     wget tar curl unzip && \
     rm -rf /var/lib/apt/lists/*
 
-# Install OpenJDK 23
-RUN wget -q https://download.java.net/java/early_access/jdk23/36/GPL/openjdk-23-ea+36_linux-x64_bin.tar.gz -O openjdk-23.tar.gz && \
-    mkdir -p /usr/lib/jvm && \
-    tar -xzf openjdk-23.tar.gz -C /usr/lib/jvm && \
-    rm openjdk-23.tar.gz && \
-    ln -s /usr/lib/jvm/jdk-23-ea+36 /usr/lib/jvm/default-jdk
+# Install OpenJDK 23 with fallback to OpenJDK 17 if download fails
+RUN wget -q https://download.java.net/java/early_access/jdk23/36/GPL/openjdk-23-ea+36_linux-x64_bin.tar.gz -O openjdk-23.tar.gz || echo "OpenJDK 23 is unavailable. Using OpenJDK 17." && \
+    if [ -f openjdk-23.tar.gz ]; then \
+        mkdir -p /usr/lib/jvm && \
+        tar -xzf openjdk-23.tar.gz -C /usr/lib/jvm && \
+        rm openjdk-23.tar.gz && \
+        ln -s /usr/lib/jvm/jdk-23-ea+36 /usr/lib/jvm/default-jdk; \
+    else \
+        apt-get update && apt-get install -y openjdk-17-jdk && \
+        ln -s /usr/lib/jvm/java-17-openjdk-amd64 /usr/lib/jvm/default-jdk; \
+    fi
 
-# Set environment variables for JDK 23
+# Set environment variables for the JDK
 ENV JAVA_HOME=/usr/lib/jvm/default-jdk
 ENV PATH=$JAVA_HOME/bin:$PATH
 
-# Verify the Java version
+# Verify Java version
 RUN java --version
 
 # Set the working directory
@@ -50,7 +55,7 @@ RUN apt-get update && apt-get install -y wget tar curl && \
 # Copy the JDK from the build stage
 COPY --from=build /usr/lib/jvm /usr/lib/jvm
 
-# Set environment variables for JDK 23
+# Set environment variables for the JDK
 ENV JAVA_HOME=/usr/lib/jvm/default-jdk
 ENV PATH=$JAVA_HOME/bin:$PATH
 
