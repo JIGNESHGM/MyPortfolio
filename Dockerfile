@@ -56,7 +56,7 @@ ENV PATH=$JAVA_HOME/bin:$PATH
 RUN java --version
 
 # Expose the application port
-EXPOSE 8081
+EXPOSE 8080
 
 # Start the application
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
