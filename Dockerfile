@@ -49,3 +49,5 @@ EXPOSE 8081
 
 # Start the application
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+
+# Okay All Update
