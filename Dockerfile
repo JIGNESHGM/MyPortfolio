@@ -10,9 +10,9 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/*
 
 # Download and install OpenJDK 23 from Adoptium
-RUN wget https://github.com/AdoptOpenJDK/openjdk23/releases/download/jdk-23%2B32/OpenJDK23U-jdk_x64_linux_hotspot_23_32.tar.gz -P /tmp && \
-    tar -xvf /tmp/OpenJDK23U-jdk_x64_linux_hotspot_23_32.tar.gz -C /opt && \
-    rm /tmp/OpenJDK23U-jdk_x64_linux_hotspot_23_32.tar.gz
+RUN wget https://github.com/AdoptOpenJDK/openjdk23/releases/download/jdk-23%2B34/OpenJDK23U-jdk_x64_linux_hotspot_23_34.tar.gz -P /tmp && \
+    tar -xvf /tmp/OpenJDK23U-jdk_x64_linux_hotspot_23_34.tar.gz -C /opt && \
+    rm /tmp/OpenJDK23U-jdk_x64_linux_hotspot_23_34.tar.gz
 
 # Set environment variables for Java 23
 ENV JAVA_HOME=/opt/jdk-23
@@ -51,8 +51,6 @@ RUN java --version
 # Copy the built JAR file
 COPY --from=build /app/target/*.jar /app/app.jar
 
-# Expose the application port
-EXPOSE 8081
 
 # Run the Spring Boot application
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
